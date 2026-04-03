@@ -1,4 +1,4 @@
-import { Container, SectionIntro, Card, Grid, GridCol } from '@shohojdhara/atomix';
+import { Container, SectionIntro, Card, Grid, GridCol, Block } from '@shohojdhara/atomix';
 
 const solutions = [
   {
@@ -35,7 +35,7 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section id="solutions" aria-labelledby="solutions-title" style={{ padding: '5rem 0' }}>
+    <Block id="solutions" aria-labelledby="solutions-title" style={{ padding: '5rem 0' }}>
       <Container>
         <SectionIntro
           label="⚙️ Solutions"
@@ -59,6 +59,6 @@ export default function Solutions() {
           ))}
         </Grid>
       </Container>
-    </section>
+    </Block>
   );
 }

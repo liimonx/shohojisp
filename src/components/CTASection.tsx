@@ -1,4 +1,4 @@
-import { Container, Button } from '@shohojdhara/atomix';
+import { Container, Button, Block } from '@shohojdhara/atomix';
 
 interface CTASectionProps {
   onDemoClick: () => void;
@@ -6,7 +6,7 @@ interface CTASectionProps {
 
 export default function CTASection({ onDemoClick }: CTASectionProps) {
   return (
-    <section style={{ padding: '7rem 0', textAlign: 'center', backgroundColor: 'var(--atomix-color-surface-main)' }}>
+    <Block style={{ padding: '7rem 0', textAlign: 'center', backgroundColor: 'var(--atomix-color-surface-main)' }}>
       <Container>
         <div>
           <h2 style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '1.5rem' }}>Ready to Modernize Your ISP?</h2>
@@ -34,6 +34,6 @@ export default function CTASection({ onDemoClick }: CTASectionProps) {
           </div>
         </div>
       </Container>
-    </section>
+    </Block>
   );
 }

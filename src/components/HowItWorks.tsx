@@ -1,4 +1,4 @@
-import { Container, SectionIntro, Steps } from '@shohojdhara/atomix';
+import { Container, SectionIntro, Steps, Block } from '@shohojdhara/atomix';
 
 const steps = [
   {
@@ -21,7 +21,7 @@ const steps = [
 
 export default function HowItWorks() {
   return (
-    <section id="how-it-works" aria-labelledby="hiw-title" style={{ padding: '5rem 0' }}>
+    <Block id="how-it-works" aria-labelledby="hiw-title" style={{ padding: '5rem 0' }}>
       <Container>
         <SectionIntro
           alignment="center"
@@ -36,6 +36,6 @@ export default function HowItWorks() {
           glass={true}
         />
       </Container>
-    </section>
+    </Block>
   );
 }

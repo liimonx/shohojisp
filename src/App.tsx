@@ -11,7 +11,7 @@ import CTASection from './components/CTASection';
 import FooterSection from './components/FooterSection';
 
 function App() {
-  const contactRef = useRef<HTMLElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const scrollToContact = () => {
     contactRef.current?.scrollIntoView({ behavior: 'smooth' });

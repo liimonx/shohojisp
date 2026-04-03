@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Button, Container, SectionIntro, Card, Grid, GridCol, Badge } from '@shohojdhara/atomix';
+import { Button, Container, SectionIntro, Card, Grid, GridCol, Badge, Block } from '@shohojdhara/atomix';
 
 interface Feature {
   id: string;
@@ -83,16 +83,16 @@ export default function Pricing({ onCtaClick }: { onCtaClick: () => void }) {
 
   if (loading) {
     return (
-      <section id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
+      <Block id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
         <Container>
           <div style={{ textAlign: 'center' }}>Loading pricing plans...</div>
         </Container>
-      </section>
+      </Block>
     );
   }
 
   return (
-    <section id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
+    <Block id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
       <Container>
         <SectionIntro
           label="💰 Pricing"
@@ -141,6 +141,6 @@ export default function Pricing({ onCtaClick }: { onCtaClick: () => void }) {
           ))}
         </Grid>
       </Container>
-    </section>
+    </Block>
   );
 }

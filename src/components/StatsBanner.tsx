@@ -1,4 +1,4 @@
-import { Container, Grid, GridCol } from '@shohojdhara/atomix';
+import { Container, Grid, GridCol, Block } from '@shohojdhara/atomix';
 
 const stats = [
   { id: 's1', value: '99.9%', label: 'Uptime' },
@@ -9,7 +9,7 @@ const stats = [
 
 export default function StatsBanner() {
   return (
-    <section aria-label="Business statistics" style={{ padding: '3rem 0', backgroundColor: 'var(--atomix-color-surface-card)' }}>
+    <Block aria-label="Business statistics" style={{ padding: '3rem 0', backgroundColor: 'var(--atomix-color-surface-card)' }}>
       <Container>
         <Grid>
           {stats.map((stat) => (
@@ -22,6 +22,6 @@ export default function StatsBanner() {
           ))}
         </Grid>
       </Container>
-    </section>
+    </Block>
   );
 }

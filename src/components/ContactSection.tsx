@@ -1,5 +1,5 @@
 import { useState, useRef } from 'react';
-import { Container, SectionIntro, Card, Button, Input, Select, Textarea, FormGroup, Grid, GridCol } from '@shohojdhara/atomix';
+import { Container, SectionIntro, Card, Button, Input, Select, Textarea, FormGroup, Grid, GridCol, Block } from '@shohojdhara/atomix';
 
 interface ContactSectionProps {
   sectionRef?: React.RefObject<HTMLElement | null>;
@@ -39,10 +39,10 @@ export default function ContactSection({ sectionRef }: ContactSectionProps) {
   };
 
   return (
-    <section
+    <Block
       id="contact"
       aria-labelledby="contact-title"
-      ref={sectionRef as React.RefObject<HTMLElement>}
+      ref={sectionRef as React.RefObject<HTMLDivElement>}
       style={{ padding: '5rem 0' }}
     >
       <Container>
@@ -183,6 +183,6 @@ export default function ContactSection({ sectionRef }: ContactSectionProps) {
           </GridCol>
         </Grid>
       </Container>
-    </section>
+    </Block>
   );
 }
