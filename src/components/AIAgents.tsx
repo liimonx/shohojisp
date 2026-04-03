@@ -35,15 +35,16 @@ const capabilities = [
 
 export default function AIAgents() {
   return (
-    <section className="isp-section isp-ai-section" id="ai-agents" aria-labelledby="ai-title">
+    <section id="ai-agents" aria-labelledby="ai-title" style={{ padding: '5rem 0', backgroundColor: 'var(--atomix-color-surface-main)' }}>
       <Container>
-        <Grid alignItems="center" className="isp-ai-layout">
+        <Grid alignItems="center">
           <GridCol xs={12} lg={6}>
-            <div className="isp-ai-image">
+            <div style={{ borderRadius: '12px', overflow: 'hidden', boxShadow: '0 20px 40px rgba(0,0,0,0.2)' }}>
               <img
                 src="/ai-agents.png"
                 alt="AI-powered ISP network monitoring and automation dashboard"
                 loading="lazy"
+                style={{ width: '100%', display: 'block' }}
               />
             </div>
           </GridCol>
@@ -51,9 +52,8 @@ export default function AIAgents() {
           <GridCol xs={12} lg={6}>
             <SectionIntro
               label="🤖 AI Agents"
-              title={<>The Future of Autonomous<br />ISP Operations</>}
+              title="The Future of Autonomous ISP Operations"
               text="Our AI agents don't just alert — they act. From network healing to customer support, let intelligent automation handle the routine so your team focuses on what matters."
-              className="u-mb-6"
             />
 
             <Grid role="list" aria-label="AI capabilities">
@@ -64,7 +64,7 @@ export default function AIAgents() {
                     row
                     flat
                     size="sm"
-                    icon={<span className="u-fs-xl">{cap.icon}</span>}
+                    icon={<span style={{ fontSize: '1.25rem' }}>{cap.icon}</span>}
                     title={cap.title}
                     text={cap.desc}
                   />

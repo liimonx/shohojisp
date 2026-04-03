@@ -1,4 +1,4 @@
-import { Container } from '@shohojdhara/atomix';
+import { Container, Grid, GridCol } from '@shohojdhara/atomix';
 
 const stats = [
   { id: 's1', value: '99.9%', label: 'Uptime' },
@@ -9,16 +9,18 @@ const stats = [
 
 export default function StatsBanner() {
   return (
-    <section className="isp-stats" aria-label="Business statistics">
+    <section aria-label="Business statistics" style={{ padding: '3rem 0', backgroundColor: 'var(--atomix-color-surface-card)' }}>
       <Container>
-        <ul className="isp-stats-list">
+        <Grid>
           {stats.map((stat) => (
-            <li key={stat.id} className="isp-stat-item">
-              <span className="isp-stat-value">{stat.value}</span>
-              <span className="isp-stat-label">{stat.label}</span>
-            </li>
+            <GridCol key={stat.id} xs={6} md={3}>
+              <div style={{ textAlign: 'center' }}>
+                <div style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--atomix-color-primary-main)' }}>{stat.value}</div>
+                <div style={{ fontSize: '0.875rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>{stat.label}</div>
+              </div>
+            </GridCol>
           ))}
-        </ul>
+        </Grid>
       </Container>
     </section>
   );

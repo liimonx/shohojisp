@@ -15,10 +15,10 @@ export default function NavbarComponent({ onContactClick }: NavbarComponentProps
   }, []);
 
   const brand = (
-    <a href="#" className="u-flex u-items-center u-gap-2" aria-label="ShohojISP Home">
-      <div className="isp-navbar__logo-icon" aria-hidden="true">S</div>
-      <span className="u-fs-lg u-font-bold">
-        Shohoj<span className="u-text-primary">ISP</span>
+    <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'inherit' }} aria-label="ShohojISP Home">
+      <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--atomix-color-primary-main)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: 'bold' }} aria-hidden="true">S</div>
+      <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+        Shohoj<span style={{ color: 'var(--atomix-color-primary-main)' }}>ISP</span>
       </span>
     </a>
   );
@@ -28,17 +28,16 @@ export default function NavbarComponent({ onContactClick }: NavbarComponentProps
       brand={brand}
       position="fixed"
       glass={true}
-      className={scrolled ? 'is-scrolled' : ''}
       aria-label="Main navigation"
     >
-      <Nav className="u-mx-auto">
+      <Nav>
         <NavItem href="#solutions">Solutions</NavItem>
         <NavItem href="#ai-agents">AI Agents</NavItem>
         <NavItem href="#how-it-works">How It Works</NavItem>
         <NavItem href="#pricing">Pricing</NavItem>
       </Nav>
 
-      <div className="u-flex u-items-center u-gap-3">
+      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
         <Button
           variant="ghost"
           onClick={onContactClick}

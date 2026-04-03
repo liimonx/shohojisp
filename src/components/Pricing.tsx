@@ -83,68 +83,59 @@ export default function Pricing({ onCtaClick }: { onCtaClick: () => void }) {
 
   if (loading) {
     return (
-      <section className="isp-section isp-pricing" id="pricing" aria-labelledby="pricing-title">
-        <div className="container-sm">
-          <div className="isp-pricing__header">
-            <div className="isp-loader">Loading pricing plans...</div>
-          </div>
-        </div>
+      <section id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
+        <Container>
+          <div style={{ textAlign: 'center' }}>Loading pricing plans...</div>
+        </Container>
       </section>
     );
   }
 
   return (
-    <section className="isp-section isp-pricing" id="pricing" aria-labelledby="pricing-title">
+    <section id="pricing" aria-labelledby="pricing-title" style={{ padding: '5rem 0' }}>
       <Container>
         <SectionIntro
           label="💰 Pricing"
-          title={<>Transparent Pricing,<br />No Surprises</>}
-          text="Choose the plan that fits your needs. Upgrade, downgrade, or cancel anytime."
+          title="Plans for Every Stage"
+          text="Scale your ISP operations with flexible pricing that grows with you."
+          alignment="center"
         />
 
-        <Grid className="isp-pricing-plans">
+        <Grid>
           {pricingTiers.map((tier) => (
-            <GridCol key={tier.name} xs={12} md={6} lg={tier.featured ? 6 : 4} className="isp-pricing-plan-col">
+            <GridCol key={tier.name} xs={12} md={6} lg={3}>
               <Card
                 glass={tier.featured}
-                size={tier.featured ? 'lg' : 'md'}
-                className={`isp-pricing-plan ${tier.featured ? 'isp-pricing-plan--featured' : ''}`}
+                hoverable
+                style={{ height: '100%', display: 'flex', flexDirection: 'column' }}
               >
-                {tier.badge && (
-                  <Badge label={tier.badge} variant="primary" className="isp-pricing-badge">
-                    {tier.badge}
-                  </Badge>
-                )}
-                
-                <div className="isp-pricing-header">
-                  <h3 className="isp-pricing-name">{tier.name}</h3>
-                  <p className="isp-pricing-tagline">{tier.tagline}</p>
-                  
-                  <div className="isp-pricing-price">
-                    <span className="isp-pricing-amount">{tier.price}</span>
-                    <span className="isp-pricing-period"> {tier.period}</span>
+                <div style={{ padding: '1.5rem', flex: 1 }}>
+                  {tier.badge && (
+                    <Badge label={tier.badge} variant="primary" style={{ marginBottom: '1rem' }} />
+                  )}
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '0.5rem' }}>{tier.name}</h3>
+                  <div style={{ fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                    {tier.price}<span style={{ fontSize: '1rem', fontWeight: 'normal' }}>/{tier.period}</span>
                   </div>
+                  <p style={{ fontSize: '0.875rem', marginBottom: '1.5rem' }}>{tier.description}</p>
                   
-                  <p className="isp-pricing-desc">{tier.description}</p>
+                  <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                    {tier.features.map(f => (
+                      <li key={f.id} style={{ marginBottom: '0.5rem', fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <span style={{ color: 'var(--atomix-color-primary-main)' }}>✓</span> {f.name}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
-                
-                <Button 
-                  variant={tier.featured ? 'primary' : 'secondary'} 
-                  size="lg" 
-                  className="u-mb-4"
-                  onClick={tier.onClick}
-                >
-                  {tier.cta}
-                </Button>
-                
-                <ul className="isp-pricing-features" role="list" aria-label={`${tier.name} plan features`}>
-                  {tier.features.map((feature) => (
-                    <li key={feature.id} className="isp-pricing-feature">
-                      <span className="isp-pricing-feature-check">✓</span>
-                      <span>{feature.name}</span>
-                    </li>
-                  ))}
-                </ul>
+                <div style={{ padding: '1.5rem', borderTop: '1px solid rgba(255,255,255,0.1)' }}>
+                  <Button
+                    variant={tier.featured ? 'primary' : 'outline-primary'}
+                    fullWidth
+                    onClick={tier.onClick}
+                  >
+                    {tier.cta}
+                  </Button>
+                </div>
               </Card>
             </GridCol>
           ))}

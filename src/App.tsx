@@ -9,7 +9,6 @@ import StatsBanner from './components/StatsBanner';
 import ContactSection from './components/ContactSection';
 import CTASection from './components/CTASection';
 import FooterSection from './components/FooterSection';
-import './App.css';
 
 function App() {
   const contactRef = useRef<HTMLElement>(null);
@@ -19,7 +18,7 @@ function App() {
   };
 
   return (
-    <div className="isp-page">
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column' }}>
       <Navbar onContactClick={scrollToContact} />
       <main>
         <HeroSection onDemoClick={scrollToContact} />

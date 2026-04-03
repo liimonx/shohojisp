@@ -1,22 +1,26 @@
 import { Footer, FooterSection, FooterLink } from '@shohojdhara/atomix';
 
 export default function FooterSectionComponent() {
+  const brand = (
+    <a href="#" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', textDecoration: 'none', color: 'inherit' }} aria-label="ShohojISP Home">
+      <div style={{ width: '32px', height: '32px', backgroundColor: 'var(--atomix-color-primary-main)', borderRadius: '4px', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#000', fontWeight: 'bold' }} aria-hidden="true">S</div>
+      <span style={{ fontSize: '1.25rem', fontWeight: 'bold' }}>
+        Shohoj<span style={{ color: 'var(--atomix-color-primary-main)' }}>ISP</span>
+      </span>
+    </a>
+  );
+
   return (
     <Footer
       layout="columns"
-      brand={
-        <a href="#" className="u-flex u-items-center u-gap-2" aria-label="ShohojISP Home">
-          <div className="isp-navbar__logo-icon">S</div>
-          <span className="u-fs-lg u-font-bold">
-            Shohoj<span className="u-text-primary">ISP</span>
-          </span>
-        </a>
-      }
+      brand={brand}
       brandDescription="Revolutionizing ISP operations with cloud infrastructure and AI intelligence. Futuristic solutions for modern providers."
       copyright={
         <>
           <div>© {new Date().getFullYear()} ShohojISP. All rights reserved.</div>
-          <div className="isp-footer__sla">99.9% Uptime Guaranteed (SLA)</div>
+          <div style={{ fontSize: '0.875rem', opacity: 0.8, marginTop: '0.5rem', padding: '0.25rem 0.75rem', backgroundColor: 'rgba(0, 242, 255, 0.1)', border: '1px solid rgba(0, 242, 255, 0.2)', borderRadius: '4px', display: 'inline-block' }}>
+            99.9% Uptime Guaranteed (SLA)
+          </div>
         </>
       }
       socialLinks={[

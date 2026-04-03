@@ -35,11 +35,11 @@ const solutions = [
 
 export default function Solutions() {
   return (
-    <section className="isp-section isp-solutions" id="solutions" aria-labelledby="solutions-title">
+    <section id="solutions" aria-labelledby="solutions-title" style={{ padding: '5rem 0' }}>
       <Container>
         <SectionIntro
           label="⚙️ Solutions"
-          title={<>Complete ISP<br />Management Suite</>}
+          title="Complete ISP Management Suite"
           text="Everything you need to run your ISP business efficiently. All in one place."
         />
 
@@ -51,7 +51,7 @@ export default function Solutions() {
                 row
                 flat
                 size="sm"
-                icon={<span className="u-fs-xl">{solution.icon}</span>}
+                icon={<span style={{ fontSize: '1.5rem' }}>{solution.icon}</span>}
                 title={solution.title}
                 text={solution.desc}
               />

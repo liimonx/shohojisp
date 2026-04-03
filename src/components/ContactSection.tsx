@@ -24,10 +24,8 @@ export default function ContactSection({ sectionRef }: ContactSectionProps) {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    // Here you would typically send the form data to your backend
     console.log('Form submitted:', formData);
     setSubmitted(true);
-    // Reset form after submission
     if (formRef.current) {
       formRef.current.reset();
     }
@@ -42,52 +40,51 @@ export default function ContactSection({ sectionRef }: ContactSectionProps) {
 
   return (
     <section
-      className="isp-section"
       id="contact"
       aria-labelledby="contact-title"
       ref={sectionRef as React.RefObject<HTMLElement>}
+      style={{ padding: '5rem 0' }}
     >
       <Container>
-        <Grid className="isp-contact-layout">
+        <Grid>
           <GridCol xs={12} lg={5}>
-            <div className="isp-contact-info">
+            <div style={{ position: 'sticky', top: '100px', marginBottom: '3rem' }}>
               <SectionIntro
                 label="✉️ Get In Touch"
                 title="Ready to Scale Your ISP?"
                 text="Our team of ISP specialists is ready to give you a personalized demo and help you migrate your existing operations seamlessly."
-                className="u-mb-6"
               />
 
-              <Card glass={true} flat className="u-mb-3">
-                <div className="u-flex u-gap-3 u-items-start">
-                  <div className="u-fs-xl" aria-hidden="true">⚡</div>
+              <Card glass={true} flat style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
+                  <div style={{ fontSize: '1.25rem' }} aria-hidden="true">⚡</div>
                   <div>
-                    <strong className="u-block u-mb-1">Live Demo in 30 Minutes</strong>
-                    <span className="u-text-secondary u-fs-sm">
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Live Demo in 30 Minutes</strong>
+                    <span style={{ fontSize: '0.875rem', opacity: 0.8 }}>
                       We'll set up a live demo of the platform tailored to your network size and requirements.
                     </span>
                   </div>
                 </div>
               </Card>
 
-              <Card glass={true} flat className="u-mb-3">
-                <div className="u-flex u-gap-3 u-items-start">
-                  <div className="u-fs-xl" aria-hidden="true">🔒</div>
+              <Card glass={true} flat style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
+                  <div style={{ fontSize: '1.25rem' }} aria-hidden="true">🔒</div>
                   <div>
-                    <strong className="u-block u-mb-1">Free 30-Day Trial</strong>
-                    <span className="u-text-secondary u-fs-sm">
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Free 30-Day Trial</strong>
+                    <span style={{ fontSize: '0.875rem', opacity: 0.8 }}>
                       No credit card required. Full platform access for 30 days with your own data.
                     </span>
                   </div>
                 </div>
               </Card>
 
-              <Card glass={true} flat className="u-mb-3">
-                <div className="u-flex u-gap-3 u-items-start">
-                  <div className="u-fs-xl" aria-hidden="true">🛟</div>
+              <Card glass={true} flat style={{ marginBottom: '1rem' }}>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'start' }}>
+                  <div style={{ fontSize: '1.25rem' }} aria-hidden="true">🛟</div>
                   <div>
-                    <strong className="u-block u-mb-1">Migration Support Included</strong>
-                    <span className="u-text-secondary u-fs-sm">
+                    <strong style={{ display: 'block', marginBottom: '0.25rem' }}>Migration Support Included</strong>
+                    <span style={{ fontSize: '0.875rem', opacity: 0.8 }}>
                       Our engineering team handles your data migration from any existing billing or RADIUS system.
                     </span>
                   </div>
@@ -97,110 +94,89 @@ export default function ContactSection({ sectionRef }: ContactSectionProps) {
           </GridCol>
 
           <GridCol xs={12} lg={7}>
-            <Card glass={true} className="isp-contact-form">
+            <Card glass={true} style={{ padding: '2rem' }}>
               {submitted ? (
-                <div className="u-text-center u-py-8 u-px-4">
-                  <div className="u-fs-2xl u-mb-3">✅</div>
-                  <h3 className="u-text-primary u-mb-2 u-fs-lg u-font-bold">
-                    Request Received!
-                  </h3>
-                  <p className="u-text-secondary u-fs-sm">
-                    Our team will reach out within 24 hours to schedule your personalized demo.
+                <div style={{ textAlign: 'center', padding: '3rem 0' }}>
+                  <div style={{ fontSize: '3rem', marginBottom: '1rem' }}>✅</div>
+                  <h3 style={{ fontSize: '1.5rem', marginBottom: '1rem' }}>Message Received!</h3>
+                  <p style={{ opacity: 0.8 }}>
+                    Thank you for reaching out. One of our ISP experts will contact you within the next 24 hours.
                   </p>
+                  <Button variant="outline-primary" style={{ marginTop: '2rem' }} onClick={() => setSubmitted(false)}>
+                    Send Another Message
+                  </Button>
                 </div>
               ) : (
-                <form ref={formRef} onSubmit={handleSubmit} noValidate>
+                <form onSubmit={handleSubmit} ref={formRef}>
                   <Grid>
-                    <GridCol xs={12} sm={6}>
-                      <FormGroup label="Full Name" htmlFor="contact-name">
+                    <GridCol xs={12} md={6}>
+                      <FormGroup label="Full Name" required>
                         <Input
-                          id="contact-name"
-                          name="name"
-                          type="text"
                           placeholder="John Doe"
+                          name="name"
                           value={formData.name}
                           onChange={handleChange}
                           required
-                          autoComplete="name"
                         />
                       </FormGroup>
                     </GridCol>
-                    <GridCol xs={12} sm={6}>
-                      <FormGroup label="Work Email" htmlFor="contact-email">
+                    <GridCol xs={12} md={6}>
+                      <FormGroup label="Email Address" required>
                         <Input
-                          id="contact-email"
-                          name="email"
                           type="email"
-                          placeholder="john@isp.com"
+                          placeholder="john@example.com"
+                          name="email"
                           value={formData.email}
                           onChange={handleChange}
                           required
-                          autoComplete="email"
                         />
                       </FormGroup>
                     </GridCol>
-                  </Grid>
-
-                  <Grid className="u-mt-4">
-                    <GridCol xs={12} sm={6}>
-                      <FormGroup label="Company / ISP Name" htmlFor="contact-company">
+                    <GridCol xs={12} md={6}>
+                      <FormGroup label="Company Name" required>
                         <Input
-                          id="contact-company"
+                          placeholder="Shohoj ISP"
                           name="company"
-                          type="text"
-                          placeholder="Acme Internet"
                           value={formData.company}
                           onChange={handleChange}
-                          autoComplete="organization"
+                          required
                         />
                       </FormGroup>
                     </GridCol>
-                    <GridCol xs={12} sm={6}>
-                      <FormGroup label="Subscriber Count" htmlFor="contact-subscribers">
+                    <GridCol xs={12} md={6}>
+                      <FormGroup label="Estimated Subscribers" required>
                         <Select
-                          id="contact-subscribers"
                           name="subscribers"
                           value={formData.subscribers}
                           onChange={handleChange}
+                          required
                           options={[
-                            { label: 'Select range…', value: '' },
-                            { label: 'Under 1,000', value: 'under-1k' },
-                            { label: '1,000 – 10,000', value: '1k-10k' },
-                            { label: '10,000 – 100,000', value: '10k-100k' },
-                            { label: '100,000+', value: '100k-plus' },
+                            { value: '', label: 'Select range' },
+                            { value: '0-500', label: '0 - 500' },
+                            { value: '500-2000', label: '500 - 2,000' },
+                            { value: '2000-10000', label: '2,000 - 10,000' },
+                            { value: '10000+', label: '10,000+' },
                           ]}
                         />
                       </FormGroup>
                     </GridCol>
+                    <GridCol xs={12}>
+                      <FormGroup label="How can we help you?">
+                        <Textarea
+                          placeholder="Tell us about your requirements..."
+                          name="message"
+                          value={formData.message}
+                          onChange={handleChange}
+                          rows={4}
+                        />
+                      </FormGroup>
+                    </GridCol>
+                    <GridCol xs={12}>
+                      <Button variant="primary" size="lg" fullWidth type="submit">
+                        Send Message
+                      </Button>
+                    </GridCol>
                   </Grid>
-
-                  <div className="u-mt-4">
-                    <FormGroup label="Message (Optional)" htmlFor="contact-message">
-                      <Textarea
-                        id="contact-message"
-                        name="message"
-                        placeholder="Tell us about your current setup and challenges…"
-                        rows={4}
-                        value={formData.message}
-                        onChange={handleChange}
-                      />
-                    </FormGroup>
-                  </div>
-
-                  <Button
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    fullWidth
-                    className="u-mt-4"
-                    id="contact-submit-btn"
-                  >
-                    🚀 Request My Demo
-                  </Button>
-
-                  <p className="u-fs-xs u-text-secondary u-text-center u-mt-3">
-                    No credit card required. Your data is protected and never shared.
-                  </p>
                 </form>
               )}
             </Card>
