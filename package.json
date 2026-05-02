@@ -11,7 +11,7 @@
   },
   "dependencies": {
     "@phosphor-icons/react": "^2.1.10",
-    "@shohojdhara/atomix": "^0.5.1",
+    "@shohojdhara/atomix": "^0.6.2",
     "react": "^19.2.4",
     "react-dom": "^19.2.4",
     "react-router-dom": "^7.13.2",
