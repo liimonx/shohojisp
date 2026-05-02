@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Navbar, Nav, NavItem, Button } from '@shohojdhara/atomix';
+import { Navbar, Nav, NavItem, Button, ColorModeToggle} from '@shohojdhara/atomix';
 
 interface NavbarComponentProps {
   onContactClick: () => void;
@@ -52,24 +52,25 @@ export default function NavbarComponent({ onContactClick }: NavbarComponentProps
         <NavItem href="#pricing">Pricing</NavItem>
       </Nav>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-        <Button
-          variant="ghost"
+      <Nav alignment='end'>
+        <NavItem>
+          <Button
           size="sm"
           onClick={onContactClick}
-          id="navbar-contact-btn"
+          
         >
           Contact
         </Button>
-        <Button
-          variant="primary"
+        </NavItem>
+          <Button
           size="sm"
           onClick={onContactClick}
-          id="navbar-demo-btn"
+          
         >
-          Request Demo
+          Login
         </Button>
-      </div>
+        <ColorModeToggle defaultValue='dark'/>
+      </Nav>
     </Navbar>
   );
 }
